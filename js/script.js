@@ -7,13 +7,18 @@ function display(playerAdd) {
     const name = playerArray[i].playerName;
 
     const ul = document.createElement("ul");
+
     ul.innerHTML = `
     <li style="list-style:none">${i + 1}  ${name}</li>
     `;
     // alert message
 
+    if (listGroups.length > 5) {
+      alert("you can not add more than five player");
+      return;
+    }
     if (playerArray.length > 5) {
-      alert("you can not add more than five");
+      alert("you can not add more than five player");
       return;
     }
     listGroups.appendChild(ul);
@@ -25,8 +30,6 @@ function addPlayer(playerNames) {
     playerName: playerName,
   };
   playerArray.push(playerObject);
-
-  document.getElementById("total-selected").innerText = playerArray.length;
   display(playerArray);
 }
 
